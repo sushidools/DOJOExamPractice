@@ -1,0 +1,39 @@
+<div id="newpost">
+  <div *ngIf="postErrors.length">
+    <ul class="alert alert-danger">
+      <li *ngFor="let error of postErrors">{{ error }}</li>
+    </ul>
+  </div>
+  <form (submit)="onSubmit($event, addPost.value)"
+  #addPost="ngForm"
+  class="form-group"
+  autocomplete="off">
+  <fieldset>
+    <legend>Create A New Post</legend>
+    <div class="form-control">
+      <label for="title">Title: </label>
+      <input type="text"
+      name="title"
+      #title="ngModel"
+      [(ngModel)]="post.title">
+    </div>
+    <div class="form-control">
+      <label for="content">Content: </label>
+      <input type="text"
+      name="content"
+      #content="ngModel"
+      [(ngModel)]="post.content">
+    </div>
+    <div class="form-control">
+      <label for="url">Image Url: </label>
+      <input type="text"
+      name="url"
+      #url="ngModel"
+      [(ngModel)]="post.url">
+    </div>
+    <div class="form-control">
+      <button>Add Post</button>
+    </div>
+  </fieldset>
+  </form>
+</div>

@@ -1,0 +1,15 @@
+<div id="wrapper" *ngIf='posts'>
+  <div id="posts" *ngFor="let p of posts">
+    <fieldset>
+      <legend>{{ p.title }}</legend>
+      <div id="leftpic">
+        <div class="crop">
+          <img src="{{ p.url }}" alt="a picture" />
+        </div>
+      </div>
+      <div id="rightcontent">
+        <h5>{{ p.content }}</h5>
+      </div>
+    </fieldset>
+  </div>
+</div>
