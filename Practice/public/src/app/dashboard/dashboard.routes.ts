@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { NewPostComponent } from './new-post/new-post.component';
 
 import { AuthGuard } from '../guards/auth-guard.service';
+import { EditPostComponent } from './edit-post/edit-post.component';
 
 export const dashboardRoutes: Routes = [
   {
@@ -13,7 +14,8 @@ export const dashboardRoutes: Routes = [
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
-      { path: 'new/post', component: NewPostComponent }
+      { path: 'new/post', component: NewPostComponent },
+      { path: 'edit/:id', component: EditPostComponent},
     ]
   }
 ];

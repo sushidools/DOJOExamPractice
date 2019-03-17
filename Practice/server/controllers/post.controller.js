@@ -4,9 +4,15 @@ const { Http } = require('@status/codes');
 module.exports = {
   getAllPosts(req, res) {
     Post.find({})
-      .then(posts => {
-        return res.json(posts);
+      .then(data => {
+        return res.json({ posts: data });
       })
+      .catch(error => res.json(error));
+  },
+
+  show(req, res) {
+    Post.findById(req.params.id)
+      .then(data => res.json({ post: data }))
       .catch(error => res.json(error));
   },
 
@@ -31,6 +37,25 @@ module.exports = {
         res.json(errors);
       });
 
-  }
+  },
+  deletePost(req, res) {
+    // console.log('This is the post to be deleted from server side ', req.params.id);
+    Post.findByIdAndDelete(req.params.id)
+      .then(post => res.json(post))
+      .catch(error => res.json(error));
+  },
 
+  updatePost(req, res) {
+    const { id: postId } = req.params;
+    console.log(req.params);
+  
+    Post.findByIdAndUpdate(postId, req.body, { new: true })
+      .then(post => res.json(post))
+      .catch(error => {
+        const errors = Object.keys(error.errors).map(
+          key => error.errors[key].message
+        );
+        res.json(errors);
+      });
+  }
 }

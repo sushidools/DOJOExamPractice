@@ -10,9 +10,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AuthGuard } from '../guards/auth-guard.service';
+import { EditPostComponent } from './edit-post/edit-post.component';
 
 @NgModule({
-  declarations: [LayoutComponent, HomeComponent, NewPostComponent],
+  declarations: [LayoutComponent, HomeComponent, NewPostComponent, EditPostComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(dashboardRoutes),

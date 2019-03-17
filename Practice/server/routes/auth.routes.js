@@ -4,4 +4,6 @@ const router = require('express').Router();
 module.exports = router
   .post('/login', authController.login)
   .post('/register', authController.register)
-  .delete('/logout', authController.logout);
+  .delete('/logout', authController.logout)
+  .get('/getCUser', authController.getCurrentUser)
+  .get('/:id', authController.getUser);

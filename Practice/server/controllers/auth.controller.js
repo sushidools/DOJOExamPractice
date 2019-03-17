@@ -43,6 +43,21 @@ module.exports = {
     response.clearCookie('expiration');
     response.json(Http.Ok);
   },
+
+  getCurrentUser(request, response) {
+    console.log('The current userID is ', request.session.user);
+    User.findById(request.session.userID)
+      .then(user => response.json(user))
+      .catch(error => respone.json(error));
+  },
+
+  getUser(request, respone) {
+    console.log('the params ', request.params.id);
+    User.findById(request.params.id)
+      .then(data => respone.json({ user: data }))
+      .catch(error => respone.json(error));
+  }
+
 };
 
 function completeLogin(request, response, user) {

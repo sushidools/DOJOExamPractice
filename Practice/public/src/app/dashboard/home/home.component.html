@@ -1,15 +1,27 @@
 <div id="wrapper" *ngIf='posts'>
+  <p>{{ currentUser['firstName'] }}</p>
   <div id="posts" *ngFor="let p of posts">
-    <fieldset>
-      <legend>{{ p.title }}</legend>
-      <div id="leftpic">
-        <div class="crop">
-          <img src="{{ p.url }}" alt="a picture" />
+      <fieldset>
+        <legend>{{ p.title }}</legend>
+        <div id="leftpic">
+          <div class="crop">
+            <img src="{{ p.url }}" alt="a picture" />
+          </div>
         </div>
-      </div>
-      <div id="rightcontent">
-        <h5>{{ p.content }}</h5>
-      </div>
-    </fieldset>
-  </div>
+        <div id="rightcontent">
+          <h5>{{ p.content }}</h5>
+          <div *ngIf="currentUser['_id'] == p.userid">
+            <div *ngIf="currentUser['_id'] == p.userid" (click)="onClick($event)">
+              <button (click)="deletepost(p)">Delete</button>
+            </div>
+            <div *ngIf="currentUser['_id'] == p.userid" (click)="onClickE($event)">
+              <button (click)="editPost(p)">Edit</button>
+            </div>
+          </div>
+          <div *ngIf="currentUser['_id'] != p.userid" (click)="onInfoClick($event)">
+              <button (click)="showInfo(p.userid)">User who made this post</button>
+          </div>
+        </div>
+      </fieldset>
+    </div>
 </div>

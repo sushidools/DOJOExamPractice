@@ -1,0 +1,41 @@
+<div id="editpost">
+    <div *ngIf="postErrors.length">
+      <ul class="alert alert-danger">
+        <li *ngFor="let error of postErrors">{{ error }}</li>
+      </ul>
+    </div>
+    <form (submit)="onSubmit($event, editPost.value)"
+    #editPost="ngForm"
+    class="form-group"
+    autocomplete="off">
+    <fieldset>
+      <legend>Edit Your Post</legend>
+      <div class="form-control">
+        <label for="title">Title: </label>
+        <input type="text"
+        name="title"
+        #title="ngModel"
+        [(ngModel)]="PostEdit.title">
+      </div>
+      <div class="form-control">
+        <label for="content">Content: </label>
+        <input type="text"
+        name="content"
+        #content="ngModel"
+        [(ngModel)]="PostEdit.content">
+      </div>
+      <img style="width: 200px;" src='{{ PostEdit.url }}' alt="post image">
+      <div class="form-control">
+        <label for="url">Image Url: </label>
+        <input type="text"
+        name="url"
+        #url="ngModel"
+        [(ngModel)]="PostEdit.url">
+      </div>
+      <div class="form-control">
+        <button>Edit Post</button>
+      </div>
+    </fieldset>
+    </form>
+  </div>
+

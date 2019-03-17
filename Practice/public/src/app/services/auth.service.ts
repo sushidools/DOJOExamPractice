@@ -36,6 +36,16 @@ export class AuthService {
       .pipe(tap(() => this.isAuthed$.next(false)));
   }
 
+  getCurrentUser(): Observable<User[]> {
+    return this.http
+      .get<User[]>(`${this.base}/getCUser`);
+  }
+
+  getUser(id: string): Observable<User[]> {
+    return this.http
+      .get<User[]>(`${this.base}/${id}`);
+  }
+
   isAuthed(): boolean {
     const expired = parseInt(this.cookieService.get('expiration'), 10);
     const userID = this.cookieService.get('userID');

@@ -17,7 +17,7 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit() {
     this.auth.isAuthed$.subscribe(isLogged => {
-      console.log(isLogged);
+      // console.log(isLogged);
       this.isAuthed = isLogged;
     });
   }

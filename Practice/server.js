@@ -24,7 +24,7 @@ app.use(
     cookie: {
       secure: false,
       httpOnly: false,
-      maxAge: 36000000,
+      maxAge: 360000000,
     },
   })
 );
