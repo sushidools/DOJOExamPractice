@@ -1,14 +1,14 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 # compiled output
-/dist
+Practice/public/dist
 /tmp
 /out-tsc
 # Only exists if Bazel was run
 /bazel-out
 
 # dependencies
-/node_modules
-/public/node_modules
+Practice/node_modules
+Practice/public/node_modules
 
 # profiling files
 chrome-profiler-events.json
@@ -30,6 +30,14 @@ speed-measure-plugin.json
 !.vscode/launch.json
 !.vscode/extensions.json
 .history/*
+.vagrant
+bootstrap.sh
+VagrantFile
+bower_components/
+package-lock.json
+Practice/package-lock.json
+Practice/public/package-lock.json
+
 
 # misc
 /.sass-cache
